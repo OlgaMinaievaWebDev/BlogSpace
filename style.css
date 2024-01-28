@@ -39,3 +39,7 @@ button {
 textarea {
   resize: none;
 }
+
+p {
+  margin-bottom: 1em;
+}
