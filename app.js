@@ -10,18 +10,33 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
        `;
     });
     document.getElementById("blog-list").innerHTML = html;
-    console.log(html);
   });
 
 // event
 document.getElementById("new-post").addEventListener("submit", function (e) {
   e.preventDefault();
- const postTitle = document.getElementById("post-title").value;
- const postBody = document.getElementById("post-body").value;
- const data = {
-  title: postTitle,
-  body: postBody,
- }
+  const postTitle = document.getElementById("post-title").value;
+  const postBody = document.getElementById("post-body").value;
+  const data = {
+    title: postTitle,
+    body: postBody,
+  };
+  const options = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
- console.log(data)
+  fetch("https://apis.scrimba.com/jsonplaceholder/posts", options)
+    .then((response) => response.json())
+    .then((data) => {
+      document.getElementById("blog-list").innerHTML = `
+          <h3>${data.title}</h3>
+          <p>${data.body}</p>
+          <hr/>
+          ${document.getElementById("blog-list").innerHTML}
+          `;
+    });
 });
