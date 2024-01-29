@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+ 
 }
 
 nav {
@@ -24,6 +25,7 @@ nav {
 
 /* form */
 form {
+  
   padding: 60px 10px 10px 10px;
   display: grid;
   gap: 0.5em;
